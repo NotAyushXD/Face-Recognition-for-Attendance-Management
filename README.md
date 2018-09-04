@@ -1,7 +1,7 @@
 # FaceRecognition
+In this project we have only completed the Face Detection part and saving the training data.
 
-
-Add a new folder of "train_data"
+Add a new folder of "train_data" to run it without errors.
 
 
 
