@@ -1,12 +1,13 @@
 # FaceRecognition
 
+In this project I have only completed the Face Detection part and saving the training data in which we will be using Raspberry Pi.
+
 ## For collecting training data
 Run trainingDataCreation.py on the Raspberry Pi.
 The camera used will be of the phone camera, i.e. IP Webcam app on the playstore.
 
-In this project we have only completed the Face Detection part and saving the training data.
 
-Add a new folder of "train_data" to run it without errors.
+Add a new folder of "TRAIN" to run it without errors.
 
 
 
