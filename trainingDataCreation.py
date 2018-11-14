@@ -9,7 +9,7 @@ import numpy as np
 import time
 
 
-url = 'http://100.66.35.46:8080/shot.jpg' # This value will change
+url = 'http://100.66.35.46:8080/shot.jpg' # This value will change according to the link in the application
 
 count = 0
 i = 0
@@ -28,7 +28,7 @@ while True:
         i = i+1
         cv2.imwrite(path,image)
         print("Image capture"+" "+str(i))
-    if ord('q')==cv2.waitKey(10):
-        exit(0)
+#     if ord('q')==cv2.waitKey(10):
+#         exit(0)
 
     count+=1
