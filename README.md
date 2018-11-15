@@ -12,7 +12,7 @@ The camera used will be of the phone camera, i.e. IP Webcam app, which can be fo
 
 ### Setting up IP Webcam
 - After installing IP webcam in your phone, open it up and scroll down until you see start server.
-- After you click it you will see an IP address in the screen with a port number like below.
+- After you click it you will see an IP address in the screen with a port number like below i.e. http://192.168.1.102:8080.
 
 ![alt text](https://i1.wp.com/thecodacus.com/wp-content/uploads/2017/07/IP-webcam-android-3.png)
 
