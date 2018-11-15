@@ -2,6 +2,10 @@
 
 In this project I have only completed the Face Detection part and saving the training data in which we will be using Raspberry Pi.
 
+1. [Collecting Training Data](#for-collecting-training-data)
+2. [Bounding boxes around Faces](#to-run-the-code-in-terminal-run-the-following-command)
+
+
 ## For collecting training data
 Run trainingDataCreation.py on the Raspberry Pi.
 The camera used will be of the phone camera, i.e. IP Webcam app, which can be found on the play store.
