@@ -1,4 +1,4 @@
-# FaceRecognition
+# Face Recognition (The Project is still in progress)
 
 In this project I have only completed the Face Detection part and saving the training data in which we will be using Raspberry Pi.
 
