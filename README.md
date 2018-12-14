@@ -4,8 +4,8 @@ In this project I have only completed the Face Detection part and saving the tra
 
 We have 3 phases in this project
 1. [Collecting Training Data](#for-collecting-training-data)
-2. [Collecting testing data](#Training a model using KNN and predicting)
-3. [Training a model using KNN and predicting](#Training a model using KNN and predicting)
+2. [Collecting Testing data](#collecting-testing-data)
+3. [Training a model using KNN and predicting](#training-a-model-using-knn-and-predicting)
 
 
 ## For collecting training data
@@ -26,7 +26,7 @@ The camera used will be of the phone camera, i.e. IP Webcam app, which can be fo
 run: python3 detect_faces_video.py
 
 
-## Training a model using KNN and predicting
+## Collecting Testing data
 
 run: python3 collecting_testing_data.py
 
