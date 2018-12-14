@@ -2,8 +2,10 @@
 
 In this project I have only completed the Face Detection part and saving the training data in which we will be using Raspberry Pi.
 
+We have 3 phases in this project
 1. [Collecting Training Data](#for-collecting-training-data)
-2. [Bounding boxes around Faces](#to-run-the-code-in-terminal-run-the-following-command)
+2. [Collecting testing data](#Training a model using KNN and predicting)
+3. [Training a model using KNN and predicting](#Training a model using KNN and predicting)
 
 
 ## For collecting training data
@@ -21,12 +23,18 @@ The camera used will be of the phone camera, i.e. IP Webcam app, which can be fo
 - Paste the above link in the trainingDataCreation.py on line 12.
 - Before running the code remember that the phone should be on the same network as the Raspberry Pi / PC.
 
-Add a new folder of "TRAIN" to run it without errors.
+run: python3 detect_faces_video.py
 
 
-## To run the code in terminal run the following command.
+## Training a model using KNN and predicting
 
-python detect_faces_video.py --prototxt deploy.prototxt.txt --model res10_300x300_ssd_iter_140000.caffemodel
+run: python3 collecting_testing_data.py
+
+## Training a model using KNN and predicting
+
+run: python3 face_recognition_knn.py
+
+The reference was taken from the FaceRecgnition API: https://github.com/ageitgey/face_recognition
+The installaton of the API is given in the above link
 
 
-For now the code draws the bounding box around the face
