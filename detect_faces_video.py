@@ -9,6 +9,7 @@ import time
 import cv2
 import random
 import os
+import urllib.request as ur
 
 # construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()
@@ -26,7 +27,7 @@ net = cv2.dnn.readNetFromCaffe('deploy.prototxt.txt', 'res10_300x300_ssd_iter_14
 
 # initialize the video stream and allow the cammera sensor to warmup
 print("[INFO] starting video stream...")
-vs = VideoStream(src=0).start()
+# vs = VideoStream(src=0).start()
 time.sleep(2.0)
 count = 0
 i = 1
@@ -34,17 +35,27 @@ y=10000
 
 
 name = input("Enter your name: ")
-newpath = os.path.join('/home/ayush/Desktop/WorkSpace/IOT Project/IOT FINAL/DATA/train', name)
+newpath = os.path.join('/home/pi/Desktop/IOT FINAL/DATA/train', name)
 print("New path"+ newpath)
 if not os.path.exists(newpath):
-    os.makedirs(newpath)
+	os.makedirs(newpath)
 os.chdir(newpath)
+
+
+url = 'http://100.79.143.25:8080/shot.jpg'
 # loop over the frames from the video stream
 while True:
+	try:
+		imgResp=ur.urlopen(url)
+	except:
+		print("ERROR \n Connection not established")
+		break
+	imgNp=np.array(bytearray(imgResp.read()),dtype=np.uint8)
+	image = cv2.imdecode(imgNp,-1)
 	# grab the frame from the threaded video stream and resize it
 	# to have a maximum width of 400 pixels
-	frame = vs.read()
-	frame = imutils.resize(frame, width=400)
+	# frame = vs.read()
+	frame = imutils.resize(image, width=400)
 
 	# grab the frame dimensions and convert it to a blob
 	(h, w) = frame.shape[:2]
@@ -102,4 +113,4 @@ while True:
 
 # do a bit of cleanup
 cv2.destroyAllWindows()
-vs.stop()
+# vs.stop()

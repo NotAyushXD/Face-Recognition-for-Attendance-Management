@@ -40,6 +40,7 @@ from PIL import Image, ImageDraw
 import face_recognition
 from face_recognition.face_recognition_cli import image_files_in_folder
 import datetime
+from pandas import DataFrame
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 # import detect_faces_video as det
 global names
@@ -189,16 +190,16 @@ if __name__ == "__main__":
     # STEP 1: Train the KNN classifier and save it to disk
     # Once the model is trained and saved, you can skip this step next time.
     print("Training KNN classifier...")
-    classifier = train("/home/ayush/Desktop/WorkSpace/IOT Project/IOT FINAL/DATA/train", model_save_path="trained_knn_model.clf", n_neighbors=2)
+    classifier = train("/home/pi/Desktop/IOT FINAL/DATA/train", model_save_path="trained_knn_model.clf", n_neighbors=2)
     print("Training complete!")
     i = 1
     y=10000
 ########################################################################3######33
     current_date = datetime.datetime.today().strftime('%d-%m-%Y')
     # STEP 2: Using the trained classifier, make predictions for unknown images
-    for image_file in os.listdir("/home/ayush/Desktop/WorkSpace/IOT Project/IOT FINAL/DATA/test/"+str(current_date)):
+    for image_file in os.listdir("/home/pi/Desktop/IOT FINAL/DATA/test/"+str(current_date)):
 
-        full_file_path = os.path.join("/home/ayush/Desktop/WorkSpace/IOT Project/IOT FINAL/DATA/test/"+str(current_date), image_file)
+        full_file_path = os.path.join("/home/pi/Desktop/IOT FINAL/DATA/test/"+str(current_date), image_file)
 
         print("Looking for faces in {}".format(image_file))
 
@@ -213,4 +214,15 @@ if __name__ == "__main__":
             print("- Found {} at ({}, {})".format(name, left, top))
 
         # Display results overlaid on an image
-        show_prediction_labels_on_image(os.path.join("/home/ayush/Desktop/WorkSpace/IOT Project/IOT FINAL/DATA/test/"+str(current_date), image_file), predictions)
+        show_prediction_labels_on_image(os.path.join("/home/pi/Desktop/IOT FINAL/DATA/test/"+str(current_date), image_file), predictions)
+        curr_dir = []
+        for class_dir in os.listdir("/home/pi/Desktop/IOT FINAL/DATA/train"):
+            curr_dir.append(class_dir)
+        attendance = []
+        for i in curr_dir:
+            if i in names:
+                attendance.append('Present')
+            else:
+                attendance.append('Absent')
+        df = DataFrame({current_date: attendance ,'Students': curr_dir})
+        df.to_excel('Attendance.xlsx', sheet_name='sheet1', index=False)
